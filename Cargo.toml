@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "crates/adsb-decoder",
+    "crates/adsb-decoder-jni",
+]
+resolver = "2"

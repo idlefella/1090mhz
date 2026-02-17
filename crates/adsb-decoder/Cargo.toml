@@ -1,0 +1,7 @@
+[package]
+name = "adsb-decoder"
+version = "0.1.0"
+edition = "2021"
+description = "High-performance Mode-S and ADS-B message decoder for 1090 MHz"
+
+[dependencies]

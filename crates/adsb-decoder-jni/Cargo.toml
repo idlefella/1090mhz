@@ -1,0 +1,11 @@
+[package]
+name = "adsb-decoder-jni"
+version = "0.1.0"
+edition = "2021"
+description = "JNI bindings for the ADS-B decoder library"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+adsb-decoder = { path = "../adsb-decoder" }
