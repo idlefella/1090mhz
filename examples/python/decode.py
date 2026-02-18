@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Python example for adsb-decoder via ctypes (libadsb_decoder_jni).
+Python example for adsb-decoder via ctypes (libadsb_decoder_ffi).
 
 Build the shared library first:
-    cargo build --release -p adsb-decoder-jni
+    cargo build --release -p adsb-decoder-ffi
 
 Run:
     LD_LIBRARY_PATH=target/release python3 examples/python/decode.py
@@ -14,7 +14,7 @@ import os
 import sys
 
 # Locate the shared library.
-lib_name = "libadsb_decoder_jni.so"
+lib_name = "libadsb_decoder_ffi.so"
 lib_dir = os.path.join(os.path.dirname(__file__), "..", "..", "target", "release")
 lib_path = os.path.join(lib_dir, lib_name)
 

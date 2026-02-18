@@ -1,6 +1,12 @@
-// Runnable example for adsb-decoder.
-//
-// cargo run --example decode -p adsb-decoder
+/*
+ * Rust example for adsb-decoder.
+ *
+ * Build and run:
+ *   cargo run --manifest-path examples/rust/Cargo.toml
+ *
+ * Or from the examples/rust directory:
+ *   cargo run
+ */
 
 use adsb_decoder::adsb::AdsbPayload;
 use adsb_decoder::cpr;

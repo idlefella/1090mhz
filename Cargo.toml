@@ -1,6 +1,9 @@
 [workspace]
 members = [
     "crates/adsb-decoder",
-    "crates/adsb-decoder-jni",
+    "crates/adsb-decoder-ffi",
+]
+exclude = [
+    "examples/rust",
 ]
 resolver = "2"

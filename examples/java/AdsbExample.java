@@ -2,7 +2,7 @@
  * Java example for adsb-decoder via JNA (Java Native Access).
  *
  * Build the shared library first:
- *   cargo build --release -p adsb-decoder-jni
+ *   cargo build --release -p adsb-decoder-ffi
  *
  * Compile and run (requires jna.jar on the classpath):
  *   javac -cp jna.jar examples/java/AdsbExample.java
@@ -24,7 +24,7 @@ public class AdsbExample {
     }
 
     public static void main(String[] args) {
-        AdsbLib lib = Native.load("adsb_decoder_jni", AdsbLib.class);
+        AdsbLib lib = Native.load("adsb_decoder_ffi", AdsbLib.class);
 
         // DF17 identification message: KLM1023
         decode(lib, "8D4840D6202CC371C32CE0576098");

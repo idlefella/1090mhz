@@ -11,7 +11,7 @@ High-performance Mode-S and ADS-B message decoder for 1090 MHz transponders, wri
 - CRC-24 validation and ICAO address recovery
 - Gillham/Gray code altitude decoding
 - Zero dependencies — only the Rust standard library
-- JNI/C ABI bindings for Java/Android integration
+- FFI/C ABI bindings for C, Python, Java, and other languages
 
 ## Usage
 
@@ -117,7 +117,7 @@ match msg {
 ```
 crates/
   adsb-decoder/       Core decoding library
-  adsb-decoder-jni/   C ABI / JNI bindings for Java/Android
+  adsb-decoder-ffi/   C ABI / FFI bindings for C, Python, Java, etc.
 ```
 
 ## Building

@@ -7,7 +7,7 @@ name = "adsb-decoder"
 version = "0.1.0"
 
 [[package]]
-name = "adsb-decoder-jni"
+name = "adsb-decoder-ffi"
 version = "0.1.0"
 dependencies = [
  "adsb-decoder",

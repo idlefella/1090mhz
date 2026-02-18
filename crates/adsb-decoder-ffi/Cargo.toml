@@ -1,8 +1,8 @@
 [package]
-name = "adsb-decoder-jni"
+name = "adsb-decoder-ffi"
 version = "0.1.0"
 edition = "2021"
-description = "JNI bindings for the ADS-B decoder library"
+description = "C ABI / FFI bindings for the ADS-B decoder library"
 
 [lib]
 crate-type = ["cdylib"]

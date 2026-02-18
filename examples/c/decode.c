@@ -1,14 +1,14 @@
 /*
- * C example for adsb-decoder via the C ABI (libadsb_decoder_jni).
+ * C example for adsb-decoder via the C ABI (libadsb_decoder_ffi).
  *
  * Build and run:
- *   cargo build --release -p adsb-decoder-jni
- *   gcc -o decode examples/c/decode.c -L target/release -ladsb_decoder_jni \
+ *   cargo build --release -p adsb-decoder-ffi
+ *   gcc -o decode examples/c/decode.c -L target/release -ladsb_decoder_ffi \
  *       -Wl,-rpath,'$ORIGIN/../../target/release'
  *   ./decode
  *
  * Or with an explicit rpath to the repo root:
- *   gcc -o /tmp/decode examples/c/decode.c -L target/release -ladsb_decoder_jni \
+ *   gcc -o /tmp/decode examples/c/decode.c -L target/release -ladsb_decoder_ffi \
  *       -Wl,-rpath,$PWD/target/release
  *   /tmp/decode
  */
@@ -19,7 +19,7 @@
 /* Opaque handle returned by the library. */
 typedef struct DecodedMessage DecodedMessage;
 
-/* C ABI functions exported by libadsb_decoder_jni. */
+/* C ABI functions exported by libadsb_decoder_ffi. */
 DecodedMessage *adsb_decode_hex(const char *hex);
 int32_t         adsb_message_df(const DecodedMessage *msg);
 uint32_t        adsb_message_icao(const DecodedMessage *msg);
