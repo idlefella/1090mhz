@@ -134,12 +134,8 @@ pub fn decode_global(
     let (lat, lon) = if most_recent_odd {
         // Use odd message
         let nl_val = nl(lat_odd);
-        let n_i = if nl_val > 0 { nl_val } else { 1 };
-        let dlon = if n_i > 0 {
-            360.0 / n_i as f64
-        } else {
-            360.0
-        };
+        let n_i = if nl_val > 1 { nl_val - 1 } else { 1 };
+        let dlon = 360.0 / n_i as f64;
         let m = (lon_cpr_even * (nl_val as f64 - 1.0) - lon_cpr_odd * nl_val as f64 + 0.5)
             .floor();
         let lon = dlon * (modulus(m as i32, n_i as i32) as f64 + lon_cpr_odd);
@@ -249,6 +245,25 @@ mod tests {
         // Expected: approximately lat=52.26, lon=3.92
         assert!((pos.latitude - 52.2572).abs() < 0.01);
         assert!((pos.longitude - 3.9194).abs() < 0.01);
+    }
+
+    #[test]
+    fn test_global_decode_odd_recent() {
+        let even = CprPosition {
+            lat_cpr: 93000,
+            lon_cpr: 51372,
+            odd_flag: false,
+        };
+        let odd = CprPosition {
+            lat_cpr: 74158,
+            lon_cpr: 50194,
+            odd_flag: true,
+        };
+
+        let pos = decode_global(&even, &odd, true).unwrap();
+
+        assert!((pos.latitude - 52.2658).abs() < 0.01);
+        assert!((pos.longitude - 3.9389).abs() < 0.01);
     }
 
     #[test]
